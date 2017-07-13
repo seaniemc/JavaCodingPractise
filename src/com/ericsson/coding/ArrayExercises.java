@@ -27,10 +27,12 @@ public class ArrayExercises {
 //
 //        boolean there = isItThere(num);
 //        System.out.println("Is the Integer there? " +there);
-
+       // dupsOfValues();
         copyArray();
         highestValue();
         highestAndLowestValue();
+        //reverseValue();
+        findAve();
     }
 
     public static void sortArray(){
@@ -123,5 +125,43 @@ public class ArrayExercises {
 
         System.out.println(highest+" IS the highest value in the Array, while " +lowest+ " Is the lowest value");
 
+    }
+
+    public static void reverseValue(){
+        int [] array = {4,5,6,3,77,8,99,88,6445,6,5,4,67,8};
+
+        int []reversed = new int[array.length];
+        int j = 0;
+        for (int i = array.length ; i >= 0; i--) {
+            reversed[j] = array[i];
+            j++;
+        }
+
+        System.out.println("Original Array is " +Arrays.toString(array));
+        System.out.println("Reversed Array is " + Arrays.toString(reversed));
+    }
+
+    public static void dupsOfValues(){
+        int [] array = {3,4,82,1,2,4,4,5,3,0,9,8};
+
+        for (int i = 0; i < array.length; i++){
+            for(int j = 1; j <=array.length; j++){
+                if(array[i] == array[j] && i !=j){
+                    System.out.println(array[j]+" Is a duplicate number");
+                }
+            }
+        }
+    }
+    public static void findAve(){
+        int [] array ={223,567,389,3838,3,3432,4};
+        Arrays.sort(array);
+        System.out.println(Arrays.toString(array));
+        int aver = 0;
+        int i;
+        for( i = 1; i < array.length-1; i ++){
+            aver += array[i];
+        }
+        aver = aver / i;
+        System.out.println("The average of the Array " + aver);
     }
 }
