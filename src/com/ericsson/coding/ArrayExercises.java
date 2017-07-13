@@ -1,5 +1,7 @@
 package com.ericsson.coding;
 
+import com.sun.deploy.util.ArrayUtil;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -19,12 +21,16 @@ public class ArrayExercises {
 //        isItThere(55);
 //        System.out.println("");
 
-        System.out.println("Please enter an Integer value to be checked!");
-        Scanner input = new Scanner(System.in);
-        int num = input.nextInt();
+//        System.out.println("Please enter an Integer value to be checked!");
+//        Scanner input = new Scanner(System.in);
+//        int num = input.nextInt();
+//
+//        boolean there = isItThere(num);
+//        System.out.println("Is the Integer there? " +there);
 
-        boolean there = isItThere(num);
-        System.out.println("Is the Integer there? " +there);
+        copyArray();
+        highestValue();
+        highestAndLowestValue();
     }
 
     public static void sortArray(){
@@ -83,5 +89,39 @@ public class ArrayExercises {
                 return true;
         }
         return false;
+    }
+
+    public static void copyArray(){
+        int [] array ={2,5,7,8,9,0};
+        System.out.println("Original array is: "+ Arrays.toString(array));
+        int [] array2 = new int[array.length];
+
+        for (int i = 0; i <array.length ; i++) {
+            array2[i] = array[i];
+        }
+        System.out.println("Original array is: "+ Arrays.toString(array2));
+    }
+
+    public static void highestValue(){
+        int [] array = {1,5,6,3,77,8,99,88,6445,6,5,4,67,8};
+        int highest = 0;
+        for (int i = 0; i < array.length ; i++) {
+            if(array[i]> highest)
+                highest = array[i];
+        }
+        System.out.println("Is "+highest+" the highest value in the Array");
+    }
+
+    public static void highestAndLowestValue(){
+        int [] array = {4,5,6,3,77,8,99,88,6445,6,5,4,67,8};
+
+        int highest, lowest;
+        Arrays.sort(array);
+
+        lowest = array[0];
+        highest =array[array.length-1];
+
+        System.out.println(highest+" IS the highest value in the Array, while " +lowest+ " Is the lowest value");
+
     }
 }
